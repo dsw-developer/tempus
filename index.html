@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempus Watches</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <head>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <head>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Animate On Scroll (opcional, ativar com data-aos) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --dark-bg: #0d0d0d;
+      --text-light: #f0f0f0;
+      --glass: rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 15px 30px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    .navbar .nav-link,
+    .navbar-brand {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--gold) !important;
+      text-shadow: 0 0 10px var(--gold);
+    }
+
+    .logo-img {
+      height: 50px;
+      margin-right: 15px;
+      filter: drop-shadow(0 0 3px var(--gold));
+    }
+
+    .hero {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1511381939415-c1d63b82ed3f') center/cover no-repeat;
+      padding: 140px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-top: 10px;
+      animation: fadeInUp 1.5s ease;
+      color: #ddd;
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .product-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 20px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+    }
+
+    .product-card img {
+      max-height: 220px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .product-card img:hover {
+      transform: scale(1.08);
+    }
+
+    .btn-whatsapp {
+      background: linear-gradient(to right, #d4af37, #b8860b);
+      color: #fff;
+      padding: 12px 35px;
+      border-radius: 40px;
+      font-weight: bold;
+      border: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-whatsapp::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 0%; height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: width 0.4s ease;
+      z-index: 0;
+    }
+
+    .btn-whatsapp:hover::before {
+      width: 100%;
+    }
+
+    .btn-whatsapp:hover {
+      color: #fff;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    }
+
+    .about {
+      background: linear-gradient(to right, #111, #1a1a1a);
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+
+    .about p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: #ccc;
+    }
+
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+    }
+
+    .whatsapp-fixed img {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-fixed img:hover {
+      transform: scale(1.1) rotate(8deg);
+    }
+
+    footer {
+      background-color: #000;
+      color: #999;
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .product-card {
+        margin: 10px;
+      }
+    }
+.custom-navbar {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .logo-img {
+    height: 50px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 4px #d4af37);
+  }
+
+  .logo-img:hover {
+    transform: scale(1.1) rotate(-2deg);
+  }
+
+  .navbar-brand-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    background: linear-gradient(to right, #d4af37, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    animation: fadeInRight 1.5s ease;
+  }
+
+  .nav-link {
+    font-family: 'Inter', sans-serif;
+    color: #fff !important;
+    margin-left: 20px;
+    font-size: 1rem;
+    position: relative;
+    transition: all 0.3s;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: #d4af37;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    color: #d4af37 !important;
+    text-shadow: 0 0 10px #d4af37;
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  </style>
+
+
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="fotos/IMG_1208-removebg-preview.png" alt="Tempus Logo" class="logo-img me-2">
+      <span class="navbar-brand-text">Tempus Watches</span>
+    </a>
+
+
+
+<!-- Botão Instagram -->
+<a href="https://instagram.com/tempus_ao" target="_blank" class="btn btn-instagram d-lg-none">
+  <i class="bi bi-instagram"></i>
+</a>
+
+
+   
+  </div>
+</nav>
+
+
+
+  <section class="container py-5" id="relogios">
+  
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1212.jpg" alt="Relógio 1" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+          <p class="text-muted">Elegância atemporal.</p>
+	
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Classic">Comprar</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1213.jpg" alt="Relógio 2" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+          <p class="text-muted">Design moderno e dinâmico.</p>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Sport">Comprar</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1214.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1215-removebg-preview.png" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1217.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/IMG_1224.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Pablo Raez</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>45.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">38.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+
+
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/1.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Agelocer</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>300.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">250.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/2.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Agelocer</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>300.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">250.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+ <div class="col-md-4">
+        <div class="product-card">
+          <img src="fotos/3.jpg" alt="Relógio 3" class="img-fluid mb-3">
+          <h5>Tempus Agelocer Bracelete</h5>
+          <p class="text-muted">Luxo e sofisticação em cada detalhe.</p>
+<p>
+  <span style="color: #ccc;"><s>15.000 Kz</s></span>
+  <strong style="color: #d4af37; font-size: 1.2rem;">8.970 Kz</strong>
+</p>
+          <a class="btn btn-whatsapp" href="https://wa.me/244929801492?text=Gostaria%20de%20comprar%20o%20Tempus%20Lux">Comprar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
